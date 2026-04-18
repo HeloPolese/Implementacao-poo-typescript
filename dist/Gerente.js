@@ -7,14 +7,10 @@ class Gerente extends Funcionario_1.Funcionario {
     constructor(nome, endereco, telefone, cpf, agencia, salario, nivel, dataNascimento) {
         super(nome, endereco, telefone, cpf, agencia, salario, dataNascimento);
         const novoNivelFormatado = nivel.toUpperCase();
-        if (novoNivelFormatado == "CONTA" ||
-            novoNivelFormatado == "AGENCIA" ||
-            novoNivelFormatado == "REGIONAL") {
+        if (novoNivelFormatado == "CONTA" || novoNivelFormatado == "AGENCIA" || novoNivelFormatado == "REGIONAL") {
             this._nivel = novoNivelFormatado;
         }
-        else {
-            this._nivel = "CONTA";
-        }
+        this._nivel = nivel;
     }
     get nivel() {
         return this._nivel;
