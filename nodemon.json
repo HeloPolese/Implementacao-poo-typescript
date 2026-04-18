@@ -6,6 +6,6 @@
         ["src/**/*.spec.ts"],
         "dist"
     ],
-    "exec": "tsc && ts-node ./src/index.ts",
+    "exec": "tsc && ts-node ./src/teste.ts",
     "delay": 5000
 }
