@@ -42,7 +42,7 @@ export class Funcionario extends Pessoa {
         }
     }
 
-    public bonificacao(percentual: number): number {
+    public bonificacao(percentual: number): number{
             return (this._salario * percentual / 100);
     }
 
