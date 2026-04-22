@@ -27,7 +27,7 @@ export class Atendente extends Funcionario {
             return super.bonificacao(percentual);
         }
         if (this._tipo == "CAIXA") {
-            return super.bonificacao(-10);
+            return super.bonificacao(-7);
         }
         if (this._tipo == "PESSOAL") {
             return super.bonificacao(-10);

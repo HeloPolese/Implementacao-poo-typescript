@@ -14,7 +14,7 @@ export class Funcionario extends Pessoa {
         this._agencia = agencia;
     }
 
-    get quantidadeFuncionarios(): number {
+    static get quantidadeFuncionarios(): number {
         return Funcionario._quantidadeFuncionarios;
     }
 
@@ -31,13 +31,13 @@ export class Funcionario extends Pessoa {
     }
 
     set salario(novoSalario: number) {
-        if (novoSalario > 0 && novoSalario != undefined) {
+        if (novoSalario > 1412) {
             this._salario = novoSalario;
         }
     }
 
     set agencia(novaAgencia: string) {
-        if (novaAgencia != undefined && novaAgencia.length > 0) {
+        if ( novaAgencia.length > 0) {
             this._agencia = novaAgencia;
         }
     }
@@ -47,9 +47,10 @@ export class Funcionario extends Pessoa {
     }
 
     toString(): string {
-        return "\n" + super.toString() +
+        return "\n" + super.toString() + 
             "\nMatrícula: " + this._matricula +
             "\nSalário: " + this._salario +
-            "\nAgência: " + this._agencia;
+            "\nAgência: " + this._agencia; 
+          
     }
 }

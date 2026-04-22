@@ -6,7 +6,6 @@ export class Cliente extends Pessoa {
 
     constructor(nome: string, endereco: string, telefone: string, cpf: string, limiteCredito: number = 100, dataNascimento?: Date) {
         super(nome, endereco, telefone, cpf, dataNascimento);
-
         this._limiteCredito = limiteCredito;
         this._idConta = Cliente._qtdCliente;
         Cliente._qtdCliente++;
@@ -20,7 +19,7 @@ export class Cliente extends Pessoa {
     }
 
     set limiteCred(novoLimite: number) {
-        if (novoLimite > 0 && novoLimite != undefined) {
+        if (novoLimite > 0) {
             this._limiteCredito = novoLimite;
         }
     }

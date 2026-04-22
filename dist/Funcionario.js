@@ -14,7 +14,7 @@ class Funcionario extends Pessoa_1.Pessoa {
         this._salario = salario;
         this._agencia = agencia;
     }
-    get quantidadeFuncionarios() {
+    static get quantidadeFuncionarios() {
         return Funcionario._quantidadeFuncionarios;
     }
     get matricula() {
@@ -27,12 +27,12 @@ class Funcionario extends Pessoa_1.Pessoa {
         return this._agencia;
     }
     set salario(novoSalario) {
-        if (novoSalario > 0 && novoSalario != undefined) {
+        if (novoSalario > 1412) {
             this._salario = novoSalario;
         }
     }
     set agencia(novaAgencia) {
-        if (novaAgencia != undefined && novaAgencia.length > 0) {
+        if (novaAgencia.length > 0) {
             this._agencia = novaAgencia;
         }
     }

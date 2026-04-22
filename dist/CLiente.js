@@ -19,7 +19,7 @@ class Cliente extends Pessoa_1.Pessoa {
         return this._limiteCredito;
     }
     set limiteCred(novoLimite) {
-        if (novoLimite > 0 && novoLimite != undefined) {
+        if (novoLimite > 0) {
             this._limiteCredito = novoLimite;
         }
     }

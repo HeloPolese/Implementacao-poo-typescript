@@ -9,8 +9,12 @@ export class Pessoa {
         this._nome = nome;
         this._endereco = endereco;
         this._numeroTelefone = telefone;
-        this._cpf = cpf;
-
+        
+        if (cpf.length == 11) {
+            this._cpf = cpf;
+        } else {
+            throw new Error("O cpf deve conter 11 números!");
+        }
         if (dataNascimento != undefined) {
             this._dataNascimento = dataNascimento;
         } else {
@@ -62,7 +66,7 @@ export class Pessoa {
         }
     }
 
-    toString():string {
+    toString(): string {
         return "Nome: " + this._nome +
             "\nEndereço: " + this._endereco +
             "\nNúmero de Telefone: " + this._numeroTelefone +

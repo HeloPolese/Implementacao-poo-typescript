@@ -9,10 +9,10 @@ export class Gerente extends Funcionario {
 
         if (novoNivelFormatado == "CONTA" || novoNivelFormatado == "AGENCIA" || novoNivelFormatado == "REGIONAL") {
             this._nivel = novoNivelFormatado;
-        }else{
-        this._nivel = "CONTA";  
+        } else {
+            this._nivel = "CONTA";
         }
-   
+
     }
     get nivel(): string {
         return this._nivel;
@@ -23,16 +23,16 @@ export class Gerente extends Funcionario {
             return super.bonificacao(percentual);
         }
         if (this._nivel == "CONTA") {
-            return  super.bonificacao(-15);
+            return super.bonificacao(-15);
         }
-         if (this._nivel == "AGENCIA") {
-            return  super.bonificacao(-25);
+        if (this._nivel == "AGENCIA") {
+            return super.bonificacao(-20);
         }
-         if (this._nivel == "REGIONAL") {
-            return  + super.bonificacao(-25);
+        if (this._nivel == "REGIONAL") {
+            return super.bonificacao(-25);
         }
         return 0;
-        
+
     }
     toString(): string {
         return "\n- GERENTE - " + super.toString() +

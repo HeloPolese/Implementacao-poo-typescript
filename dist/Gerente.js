@@ -25,10 +25,10 @@ class Gerente extends Funcionario_1.Funcionario {
             return super.bonificacao(-15);
         }
         if (this._nivel == "AGENCIA") {
-            return super.bonificacao(-25);
+            return super.bonificacao(-20);
         }
         if (this._nivel == "REGIONAL") {
-            return +super.bonificacao(-25);
+            return super.bonificacao(-25);
         }
         return 0;
     }

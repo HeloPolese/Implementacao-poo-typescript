@@ -1,19 +1,37 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const Gerente_1 = require("./Gerente");
-const Funcionario_1 = require("./Funcionario");
 const Atendente_1 = require("./Atendente");
-const funcionario1 = new Funcionario_1.Funcionario("ana", "barraco", "999999999", "33333333333", "marrocos", 2000, new Date('1990-03-15'));
-const funcionario2 = new Funcionario_1.Funcionario("Heloisa", "pedrolandia", "999999799", "33333833333", "marranhao", 2000, new Date('1990-03-15'));
-console.log(funcionario1.toString());
-console.log(funcionario2.toString());
-console.log(funcionario1.bonificacao(20));
-const gerente1 = new Gerente_1.Gerente("analisa", "marilandia", "999999999", "33333333333", "contaLimpa", 20000, "regional", new Date('2002-03-20'));
-console.log(gerente1.toString());
-const atendente1 = new Atendente_1.Atendente("janete", "aracruz", "9999999999", "11111111111", "agencia Castro", 3000, new Date('2007-02-20'), "PESSOAL");
-console.log(atendente1.toString());
-console.log(atendente1.bonificacao());
-const gerente2 = new Gerente_1.Gerente("Helaine", "Piuma", "9999999999", "11111111111", "agencia Castro", 3000, "regional", new Date('2007-02-20'));
-console.log(gerente2.toString());
-console.log(gerente2.bonificacao(2));
+const Cliente_1 = require("./Cliente");
+const gerente1 = new Gerente_1.Gerente("Ana", "marilandia", "999999999", "33333333333", "contaLimpa", 20000, "regional", new Date('2002-03-20'));
+const gerente2 = new Gerente_1.Gerente("Heloisa", "Piuma", "9999999999", "11111111111", "agencia Castro", 3000, "regional", new Date('2007-02-20'));
+const gerente3 = new Gerente_1.Gerente("Fernando", "marilandia", "999999999", "33333333333", "contaLimpa", 20000, "regional", new Date('2002-03-20'));
+const atendente1 = new Atendente_1.Atendente("janete", "aracruz", "9999999999", "11111111111", "Agência Castro", 3000, new Date('2007-02-20'), "PESSOAL");
+const atendente2 = new Atendente_1.Atendente("eliane", "Maceió", "9966699999", "11111111199", "Agência Salém", 5000, new Date('2000-08-10'), "CAIXA");
+const atendente3 = new Atendente_1.Atendente("Mariana", "Linhares", "995742224", "23244444444", "Agencia Matriz", 15000, new Date('1998-07-21'), "PESSOAL");
+const cliente1 = new Cliente_1.Cliente("Amanda", "Santa Leopoldina", "996892225", "22222222222", 120, new Date('2001-04-10'));
+const vetorFuncionarios = [gerente1, gerente2, gerente3, atendente1, atendente2, atendente3];
+//vetorFuncionarios.push(cliente1);
+vetorFuncionarios.forEach(e => console.log(e.toString()));
+console.log("\n 🤖 Teste do Método de Bonificação SEM passagem de parâmetro - \n");
+vetorFuncionarios.forEach(e => {
+    if (e instanceof Gerente_1.Gerente) {
+        console.log(` ${e.nome} - Gerente - ${e.nivel} - Bonificação: R$ ${e.bonificacao().toFixed(2)}`);
+    }
+    else if (e instanceof Atendente_1.Atendente) {
+        console.log(` ${e.nome} - Atendente - ${e.tipo} - Bonificação: R$ ${e.bonificacao().toFixed(2)}`);
+    }
+});
+console.log("\n 🤖  Teste do Método de Bonificação COM passagem de parâmetro - \n");
+vetorFuncionarios.forEach(e => {
+    if (e instanceof Gerente_1.Gerente) {
+        console.log(` ${e.nome} - Gerente - ${e.nivel} - Bonificação: R$ ${e.bonificacao(20).toFixed(2)}`);
+    }
+    else if (e instanceof Atendente_1.Atendente && e.tipo == "PESSOAL") {
+        console.log(` ${e.nome} - Atendente - ${e.tipo} - Bonificação: R$ ${e.bonificacao(20).toFixed(2)}`);
+    }
+    else {
+        console.log(` ${e.nome} - Atendente - Caixa - Bonificação: R$ ${e.bonificacao(15).toFixed(2)}`);
+    }
+});
 //# sourceMappingURL=teste.js.map
