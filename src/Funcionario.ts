@@ -3,7 +3,7 @@ import { Pessoa } from "./Pessoa";
 export class Funcionario extends Pessoa {
     private static _quantidadeFuncionarios: number = 0;
     private _agencia: string;
-     private _salario: number;
+    private _salario: number;
     private _matricula: string;
    
     constructor(nome: string, endereco: string, telefone: string, cpf: string, agencia: string, salario: number = 0.0, dataNascimento?: Date) {

@@ -12,6 +12,7 @@ const atendente3 = new Atendente_1.Atendente("Mariana", "Linhares", "995742224",
 const cliente1 = new Cliente_1.Cliente("Amanda", "Santa Leopoldina", "996892225", "22222222222", 120, new Date('2001-04-10'));
 const vetorFuncionarios = [gerente1, gerente2, gerente3, atendente1, atendente2, atendente3];
 //vetorFuncionarios.push(cliente1);
+console.log("\n 🤖 TESTE DO MÉTODO toString()  \n");
 vetorFuncionarios.forEach(e => console.log(e.toString()));
 console.log("\n 🤖 Teste do Método de Bonificação SEM passagem de parâmetro - \n");
 vetorFuncionarios.forEach(e => {

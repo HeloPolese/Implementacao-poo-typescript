@@ -16,6 +16,7 @@ const cliente1 = new Cliente("Amanda", "Santa Leopoldina", "996892225", "2222222
 const vetorFuncionarios: Funcionario[] = [gerente1, gerente2, gerente3, atendente1, atendente2, atendente3];
 //vetorFuncionarios.push(cliente1);
 
+console.log("\n 🤖 TESTE DO MÉTODO toString()  \n");
 vetorFuncionarios.forEach(e => console.log(e.toString()));
 
 console.log("\n 🤖 Teste do Método de Bonificação SEM passagem de parâmetro - \n")

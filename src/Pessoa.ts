@@ -43,25 +43,25 @@ export class Pessoa {
     }
 
     set nome(novoNome: string) {
-        if (novoNome != undefined && novoNome.length > 0) {
+        if ( novoNome.length > 0) {
             this._nome = novoNome;
         }
     }
 
     set endereco(novoEndereco: string) {
-        if (novoEndereco != undefined) {
+        if (novoEndereco.length > 0) {
             this._endereco = novoEndereco;
         }
     }
 
     set telefone(novoNumeTelefone: string) {
-        if (novoNumeTelefone != undefined) {
+        if (novoNumeTelefone.length > 0) {
             this._numeroTelefone = novoNumeTelefone;
         }
     }
 
     set dataNascimento(novaDataNascimento: Date) {
-        if (novaDataNascimento != undefined) {
+        if (novaDataNascimento) {
             this._dataNascimento = novaDataNascimento;
         }
     }

@@ -40,22 +40,22 @@ class Pessoa {
         return this._dataNascimento.toLocaleDateString("pt-br");
     }
     set nome(novoNome) {
-        if (novoNome != undefined && novoNome.length > 0) {
+        if (novoNome.length > 0) {
             this._nome = novoNome;
         }
     }
     set endereco(novoEndereco) {
-        if (novoEndereco != undefined) {
+        if (novoEndereco.length > 0) {
             this._endereco = novoEndereco;
         }
     }
     set telefone(novoNumeTelefone) {
-        if (novoNumeTelefone != undefined) {
+        if (novoNumeTelefone.length > 0) {
             this._numeroTelefone = novoNumeTelefone;
         }
     }
     set dataNascimento(novaDataNascimento) {
-        if (novaDataNascimento != undefined) {
+        if (novaDataNascimento) {
             this._dataNascimento = novaDataNascimento;
         }
     }
