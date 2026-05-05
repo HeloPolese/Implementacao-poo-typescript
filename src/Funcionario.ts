@@ -44,7 +44,7 @@ export abstract class Funcionario extends Pessoa {
         }
     }
 
-    abstract bonificacao(percentual: number): number;
+    abstract bonificacao(percentual?: number): number;
 
     toString(): string {
         return "\n" + super.toString() +
