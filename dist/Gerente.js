@@ -3,11 +3,12 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.Gerente = void 0;
 const Funcionario_1 = require("./Funcionario");
 class Gerente extends Funcionario_1.Funcionario {
+    static _niveis = ["CONTA", "AGÊNCIA", "AGENCIA", "REGIONAL"];
     _nivel;
     constructor(nome, endereco, telefone, cpf, agencia, salario, nivel, dataNascimento) {
         super(nome, endereco, telefone, cpf, agencia, salario, dataNascimento);
         const novoNivelFormatado = nivel.toUpperCase();
-        if (novoNivelFormatado == "CONTA" || novoNivelFormatado == "AGENCIA" || novoNivelFormatado == "REGIONAL") {
+        if (Gerente._niveis.includes(novoNivelFormatado)) {
             this._nivel = novoNivelFormatado;
         }
         else {
@@ -17,20 +18,34 @@ class Gerente extends Funcionario_1.Funcionario {
     get nivel() {
         return this._nivel;
     }
+    get niveis() {
+        return Gerente._niveis.slice();
+    }
+    set nivel(novoNivel) {
+        const novoNivelFormatado = novoNivel.toUpperCase();
+        if (Gerente._niveis.includes(novoNivelFormatado)) {
+            this._nivel = novoNivelFormatado;
+        }
+        else {
+            this._nivel = "CONTA";
+        }
+    }
     bonificacao(percentual) {
-        if (percentual != undefined) {
-            return super.bonificacao(percentual);
+        if (percentual != undefined && percentual > 0) {
+            return (super.salario * percentual / 100);
         }
-        if (this._nivel == "CONTA") {
-            return super.bonificacao(-15);
+        else {
+            if (this._nivel === "CONTA") {
+                return (super.salario * 15 / 100);
+            }
+            else if (this._nivel === "AGENCIA" || this._nivel == "AGÊNCIA") {
+                return (super.salario * 20 / 100);
+            }
+            else if (this._nivel === "REGIONAL") {
+                return (super.salario * 25 / 100);
+            }
         }
-        if (this._nivel == "AGENCIA") {
-            return super.bonificacao(-20);
-        }
-        if (this._nivel == "REGIONAL") {
-            return super.bonificacao(-25);
-        }
-        return 0;
+        throw new Error("Naõ foi possível efetuar a bonificacao de Gerente! Verifique o Parâmetro.");
     }
     toString() {
         return "\n- GERENTE - " + super.toString() +

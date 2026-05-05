@@ -1,12 +1,12 @@
 import { Pessoa } from "./Pessoa";
 
-export class Funcionario extends Pessoa {
+export abstract class Funcionario extends Pessoa {
     private static _quantidadeFuncionarios: number = 0;
-    private _agencia: string;
+    private _agencia: number;
     private _salario: number;
     private _matricula: string;
-   
-    constructor(nome: string, endereco: string, telefone: string, cpf: string, agencia: string, salario: number = 0.0, dataNascimento?: Date) {
+
+    constructor(nome: string, endereco: string, telefone: string, cpf: string, agencia: number, salario: number = 0.0, dataNascimento?: Date) {
         super(nome, endereco, telefone, cpf, dataNascimento);
         Funcionario._quantidadeFuncionarios++;
         this._matricula = new Date().getFullYear().toString() + Funcionario._quantidadeFuncionarios.toString();
@@ -26,31 +26,31 @@ export class Funcionario extends Pessoa {
         return this._salario;
     }
 
-    get agencia(): string {
+    get agencia(): number {
         return this._agencia;
     }
 
     set salario(novoSalario: number) {
-        if (novoSalario > 1412) {
+        if (novoSalario < 1621) {
+            throw new Error("Salário Inválido!");
+        }else{
             this._salario = novoSalario;
         }
     }
 
-    set agencia(novaAgencia: string) {
-        if ( novaAgencia.length > 0) {
+    set agencia(novaAgencia: number) {
+        if (novaAgencia > 0) {
             this._agencia = novaAgencia;
         }
     }
 
-    public bonificacao(percentual: number): number{
-            return (this._salario * percentual / 100);
-    }
+    abstract bonificacao(percentual: number): number;
 
     toString(): string {
-        return "\n" + super.toString() + 
+        return "\n" + super.toString() +
             "\nMatrícula: " + this._matricula +
             "\nSalário: " + this._salario +
-            "\nAgência: " + this._agencia; 
-          
+            "\nAgência: " + this._agencia;
+
     }
 }

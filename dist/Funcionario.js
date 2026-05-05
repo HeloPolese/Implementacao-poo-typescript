@@ -27,17 +27,17 @@ class Funcionario extends Pessoa_1.Pessoa {
         return this._agencia;
     }
     set salario(novoSalario) {
-        if (novoSalario > 1412) {
+        if (novoSalario < 1621) {
+            throw new Error("Salário Inválido!");
+        }
+        else {
             this._salario = novoSalario;
         }
     }
     set agencia(novaAgencia) {
-        if (novaAgencia.length > 0) {
+        if (novaAgencia > 0) {
             this._agencia = novaAgencia;
         }
-    }
-    bonificacao(percentual) {
-        return (this._salario * percentual / 100);
     }
     toString() {
         return "\n" + super.toString() +
